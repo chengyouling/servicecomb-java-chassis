@@ -192,8 +192,8 @@ public class ServiceCenterDiscovery extends AbstractTask {
         failedKeys.add(k);
         LOGGER.error("find service {}#{} instance failed and remove local cache.", k.appId, k.serviceName, e);
       } else {
-        LOGGER.warn("find service {}#{} instance failed, remaining local instances cache, cause message: {}",
-            k.appId, k.serviceName, e.getMessage());
+        LOGGER.warn("find service {}#{} instance failed, keep cache instances [{}] unchanged, cause message: {}",
+            k.appId, k.serviceName, instanceToString(v.instancesCache), e.getMessage());
       }
     }
     return failedKeys;
